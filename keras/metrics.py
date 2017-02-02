@@ -3,7 +3,7 @@ from .utils.generic_utils import get_from_module
 
 
 def binary_accuracy(y_true, y_pred):
-    return K.mean(K.equal(y_true, K.round(y_pred)))
+    return K.mean(K.equal(y_true > 0.5, y_pred > 0.5))
 
 
 def categorical_accuracy(y_true, y_pred):
