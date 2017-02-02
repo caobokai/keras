@@ -32,6 +32,9 @@ def squared_hinge(y_true, y_pred):
 def hinge(y_true, y_pred):
     return K.mean(K.maximum(1. - y_true * y_pred, 0.), axis=-1)
 
+def hinge_regression(y_true, y_pred):
+    return K.mean(K.maximum(K.maximum(1. - y_true + y_pred, 1. + y_true - y_pred), 0.), axis = -1)
+
 
 def categorical_crossentropy(y_true, y_pred):
     return K.categorical_crossentropy(y_pred, y_true)
